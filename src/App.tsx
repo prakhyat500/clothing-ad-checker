@@ -10,6 +10,10 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import UploadPage from "./components/UploadPage";
 import ResultsPage from "./components/ResultsPage";
+import Dashboard from "./pages/Dashboard";
+import About from "./pages/About";
+import Features from "./pages/Features";
+import ClothingBrands from "./pages/ClothingBrands";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +29,10 @@ const App = () => (
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/upload" element={<UploadPage />} />
           <Route path="/results" element={<ResultsPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/brands" element={<ClothingBrands />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
