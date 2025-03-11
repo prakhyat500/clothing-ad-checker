@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { toast } from "@/components/ui/toast";
+import { toast } from "@/hooks/use-toast";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -9,16 +8,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  // Get the redirect path from location state, or default to '/'
   const from = location.state?.from?.pathname || '/';
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // This is a mock login implementation
-    // In a real app, you would validate credentials against your backend
     if (email && password) {
-      // Set logged in status in localStorage
       localStorage.setItem('isLoggedIn', 'true');
       
       toast({
@@ -26,7 +21,6 @@ const LoginPage = () => {
         description: "You have been logged in.",
       });
       
-      // Redirect to the page they were trying to access
       navigate(from, { replace: true });
     } else {
       toast({
