@@ -34,46 +34,63 @@ const HomePage = () => {
       <section className="py-16 bg-secondary">
         <div className="container mx-auto container-padding">
           <div className="text-center mb-12">
-            <h2 className="font-bold mb-4">How It Works</h2>
+            <h2 className="font-bold mb-4">Our Services</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our advanced system analyzes clothing advertisements to detect signs of fraudulent marketing.
+              Explore our suite of tools designed to make your online clothing shopping safer and more reliable.
             </p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="card">
               <div className="card-header">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">1</div>
-                <h3 className="font-semibold">Upload Ad Image</h3>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold">Authentic Shopping</h3>
               </div>
               <div className="card-content">
                 <p className="text-muted-foreground">
-                  Simply upload the advertisement image you want to analyze.
+                  Shop with confidence knowing you can verify clothing ads before purchase.
                 </p>
               </div>
             </div>
             
             <div className="card">
               <div className="card-header">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">2</div>
-                <h3 className="font-semibold">Analysis Process</h3>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold">Community Feedback</h3>
               </div>
               <div className="card-content">
                 <p className="text-muted-foreground">
-                  Our system examines various aspects of the advertisement.
+                  Read and share experiences with different clothing brands and products.
                 </p>
               </div>
             </div>
             
             <div className="card">
               <div className="card-header">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">3</div>
-                <h3 className="font-semibold">Get Results</h3>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold">Premium Features</h3>
               </div>
               <div className="card-content">
                 <p className="text-muted-foreground">
-                  Receive a detailed report about the authenticity of the advertisement.
+                  Unlock advanced features like virtual try-on and AI styling recommendations.
                 </p>
+                <div className="mt-4">
+                  <Link to="/features" className="text-primary hover:underline font-medium text-sm">
+                    View all features →
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

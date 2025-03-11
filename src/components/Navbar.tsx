@@ -8,7 +8,8 @@ import {
   Sparkles, 
   ShoppingBag,
   Menu,
-  X
+  X,
+  MessageSquare
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -79,6 +80,13 @@ const Navbar = () => {
             <ShoppingBag size={18} />
             <span>Shop</span>
           </Link>
+          <Link 
+            to="/brand-reviews" 
+            className={`font-medium hover:text-primary flex items-center gap-1 ${isActive('/brand-reviews') ? 'text-primary' : 'text-foreground'}`}
+          >
+            <MessageSquare size={18} />
+            <span>Reviews</span>
+          </Link>
         </nav>
         
         <div className="hidden md:flex space-x-2">
@@ -130,6 +138,14 @@ const Navbar = () => {
             >
               <ShoppingBag size={18} />
               <span>Shop</span>
+            </Link>
+            <Link 
+              to="/brand-reviews" 
+              className={`font-medium py-2 hover:text-primary flex items-center gap-2 ${isActive('/brand-reviews') ? 'text-primary' : 'text-foreground'}`}
+              onClick={toggleMenu}
+            >
+              <MessageSquare size={18} />
+              <span>Reviews</span>
             </Link>
             <div className="pt-2 flex flex-col space-y-2">
               <Link to="/login" className="btn btn-outline w-full" onClick={toggleMenu}>Login</Link>

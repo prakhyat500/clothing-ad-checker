@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Features from "./pages/Features";
 import ClothingBrands from "./pages/ClothingBrands";
 import ProtectedRoute from "./components/ProtectedRoute";
+import BrandReviews from "./pages/BrandReviews";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
             } 
           />
           <Route path="/brands" element={<ClothingBrands />} />
+          <Route path="/brand-reviews" element={<BrandReviews />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
