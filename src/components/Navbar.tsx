@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
   Eye, 
@@ -9,19 +9,34 @@ import {
   ShoppingBag,
   Menu,
   X,
-  MessageSquare
+  MessageSquare,
+  LogOut,
+  User
 } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   
+  useEffect(() => {
+    // Check login status whenever location changes
+    const loginStatus = localStorage.getItem('isLoggedIn') === 'true';
+    setIsLoggedIn(loginStatus);
+  }, [location]);
+
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    setIsLoggedIn(false);
+    // If you want to redirect after logout, you can add that logic here
   };
 
   return (
@@ -90,8 +105,26 @@ const Navbar = () => {
         </nav>
         
         <div className="hidden md:flex space-x-2">
-          <Link to="/login" className="btn btn-outline">Login</Link>
-          <Link to="/signup" className="btn btn-primary">Sign Up</Link>
+          {isLoggedIn ? (
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <User size={18} />
+                <span className="font-medium">User</span>
+              </div>
+              <button 
+                onClick={handleLogout} 
+                className="btn btn-outline flex items-center gap-1"
+              >
+                <LogOut size={16} />
+                <span>Logout</span>
+              </button>
+            </div>
+          ) : (
+            <>
+              <Link to="/login" className="btn btn-outline">Login</Link>
+              <Link to="/signup" className="btn btn-primary">Sign Up</Link>
+            </>
+          )}
         </div>
       </div>
       
@@ -147,9 +180,31 @@ const Navbar = () => {
               <MessageSquare size={18} />
               <span>Reviews</span>
             </Link>
-            <div className="pt-2 flex flex-col space-y-2">
-              <Link to="/login" className="btn btn-outline w-full" onClick={toggleMenu}>Login</Link>
-              <Link to="/signup" className="btn btn-primary w-full" onClick={toggleMenu}>Sign Up</Link>
+            <div className="pt-2">
+              {isLoggedIn ? (
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 py-2">
+                    <User size={18} />
+                    <span className="font-medium">User</span>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      handleLogout();
+                      toggleMenu();
+                    }} 
+                    className="btn btn-outline w-full flex items-center justify-center gap-1"
+                  >
+                    <LogOut size={16} />
+                    <span>Logout</span>
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-outline w-full" onClick={toggleMenu}>Login</Link>
+                  <div className="h-2"></div>
+                  <Link to="/signup" className="btn btn-primary w-full" onClick={toggleMenu}>Sign Up</Link>
+                </>
+              )}
             </div>
           </div>
         </div>
