@@ -1,8 +1,42 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { toast } from "@/components/ui/toast";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Get the redirect path from location state, or default to '/'
+  const from = location.state?.from?.pathname || '/';
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // This is a mock login implementation
+    // In a real app, you would validate credentials against your backend
+    if (email && password) {
+      // Set logged in status in localStorage
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      toast({
+        title: "Login Successful",
+        description: "You have been logged in.",
+      });
+      
+      // Redirect to the page they were trying to access
+      navigate(from, { replace: true });
+    } else {
+      toast({
+        title: "Login Failed",
+        description: "Please fill in all fields.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b bg-white py-4">
@@ -22,7 +56,7 @@ const LoginPage = () => {
               <p className="text-muted-foreground">Welcome back! Please enter your details.</p>
             </div>
             <div className="card-content">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label htmlFor="email" className="block text-sm font-medium">
                     Email
@@ -33,6 +67,8 @@ const LoginPage = () => {
                     placeholder="Enter your email"
                     required
                     className="input w-full"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -51,6 +87,8 @@ const LoginPage = () => {
                     required
                     minLength={8}
                     className="input w-full"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center space-x-2">

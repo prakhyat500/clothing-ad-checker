@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import Features from "./pages/Features";
 import ClothingBrands from "./pages/ClothingBrands";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +32,14 @@ const App = () => (
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/about" element={<About />} />
-          <Route path="/features" element={<Features />} />
+          <Route 
+            path="/features" 
+            element={
+              <ProtectedRoute>
+                <Features />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="/brands" element={<ClothingBrands />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
