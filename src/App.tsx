@@ -16,6 +16,7 @@ import Features from "./pages/Features";
 import ClothingBrands from "./pages/ClothingBrands";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BrandReviews from "./pages/BrandReviews";
+import ReporterBadges from "./pages/ReporterBadges";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,14 @@ const App = () => (
           />
           <Route path="/brands" element={<ClothingBrands />} />
           <Route path="/brand-reviews" element={<BrandReviews />} />
+          <Route 
+            path="/badges" 
+            element={
+              <ProtectedRoute>
+                <ReporterBadges />
+              </ProtectedRoute>
+            } 
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
