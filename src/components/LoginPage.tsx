@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from "@/hooks/use-toast";
+import { ShieldCheck } from 'lucide-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -36,8 +38,10 @@ const LoginPage = () => {
       <header className="border-b bg-white py-4">
         <div className="container mx-auto container-padding">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">AD</div>
-            <h1 className="text-xl font-bold">AdDetector</h1>
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white">
+              <ShieldCheck size={20} />
+            </div>
+            <h1 className="text-xl font-bold">TrustTrend</h1>
           </Link>
         </div>
       </header>
@@ -117,7 +121,7 @@ const LoginPage = () => {
 
       <footer className="bg-white border-t py-6">
         <div className="container mx-auto container-padding text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Fake Clothing Ad Detector. All rights reserved.
+          © {new Date().getFullYear()} TrustTrend. All rights reserved.
         </div>
       </footer>
     </div>

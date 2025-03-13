@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { 
@@ -11,7 +10,8 @@ import {
   X,
   MessageSquare,
   LogOut,
-  User
+  User,
+  ShieldCheck
 } from 'lucide-react';
 
 const Navbar = () => {
@@ -20,7 +20,6 @@ const Navbar = () => {
   const location = useLocation();
   
   useEffect(() => {
-    // Check login status whenever location changes
     const loginStatus = localStorage.getItem('isLoggedIn') === 'true';
     setIsLoggedIn(loginStatus);
   }, [location]);
@@ -36,7 +35,6 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('isLoggedIn');
     setIsLoggedIn(false);
-    // If you want to redirect after logout, you can add that logic here
   };
 
   return (
@@ -44,12 +42,13 @@ const Navbar = () => {
       <div className="container mx-auto container-padding flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">AD</div>
-            <h1 className="text-xl font-bold">AdDetector</h1>
+            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold">
+              <ShieldCheck size={20} />
+            </div>
+            <h1 className="text-xl font-bold">TrustTrend</h1>
           </Link>
         </div>
         
-        {/* Mobile menu button */}
         <button 
           className="md:hidden p-2" 
           onClick={toggleMenu}
@@ -58,7 +57,6 @@ const Navbar = () => {
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Desktop navigation */}
         <nav className="hidden md:flex space-x-6">
           <Link 
             to="/" 
@@ -128,7 +126,6 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t absolute left-0 right-0 shadow-lg animate-fade-in">
           <div className="container mx-auto container-padding py-4 flex flex-col space-y-4">

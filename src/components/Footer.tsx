@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ShieldCheck } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,8 +10,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">AD</div>
-              <span className="font-medium">AdDetector</span>
+              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+                <ShieldCheck size={16} />
+              </div>
+              <span className="font-medium">TrustTrend</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Our cutting-edge technology helps you identify deceptive clothing advertisements before you make a purchase.
@@ -49,7 +52,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-6 border-t text-center">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} AdDetector. All rights reserved.
+            © {new Date().getFullYear()} TrustTrend. All rights reserved.
           </p>
         </div>
       </div>

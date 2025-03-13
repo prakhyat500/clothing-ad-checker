@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from './Layout';
+import { ShieldCheck } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -9,7 +10,7 @@ const HomePage = () => {
       <section className="py-16 md:py-24 container mx-auto container-padding">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
-            <h1 className="font-bold">Spot Fake Clothing Ads with Confidence</h1>
+            <h1 className="font-bold">Spot Fake Clothing Ads with TrustTrend</h1>
             <p className="text-lg text-muted-foreground">
               Our cutting-edge tool helps you identify deceptive clothing advertisements before you make a purchase.
             </p>
