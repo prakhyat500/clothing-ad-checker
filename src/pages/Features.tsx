@@ -12,7 +12,7 @@ const Features = () => {
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1 className="font-bold mb-6">Our Features</h1>
           <p className="text-lg text-muted-foreground">
-            AdDetector offers powerful tools to enhance your shopping experience
+            TrustTrend offers powerful tools to enhance your shopping experience
             and help you make confident decisions about clothing purchases.
           </p>
         </div>
@@ -84,7 +84,7 @@ const Features = () => {
           </div>
         </section>
         
-        {/* Feature Comparison */}
+        {/* Feature List - All Free */}
         <section>
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold">TrustTrend Features</h2>
@@ -118,6 +118,10 @@ const Features = () => {
                 </tr>
                 <tr className="border-t">
                   <td className="px-4 py-3">Report Suspicious Ads</td>
+                  <td className="px-4 py-3 text-center">✓</td>
+                </tr>
+                <tr className="border-t bg-secondary/30">
+                  <td className="px-4 py-3">Reporter Badges</td>
                   <td className="px-4 py-3 text-center">✓</td>
                 </tr>
               </tbody>

@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
 import ClothingBrands from "./pages/ClothingBrands";
 import BrandReviews from "./pages/BrandReviews";
+import Features from "./pages/Features";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/brands" element={<ClothingBrands />} />
           <Route path="/brand-reviews" element={<BrandReviews />} />
+          <Route path="/features" element={<Features />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
