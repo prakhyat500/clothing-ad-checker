@@ -21,9 +21,11 @@ const HomePage = () => {
           </div>
           <div className="rounded-lg bg-gradient-to-br from-primary/10 to-accent/5 p-8 flex items-center justify-center">
             <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-border">
-              <div className="absolute inset-0 flex items-center justify-center bg-secondary">
-                <div className="text-5xl text-muted-foreground/30">Ad Image</div>
-              </div>
+              <img 
+                src="https://images.unsplash.com/photo-1578632767115-351597cf2477?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
+                alt="Clothing advertisement" 
+                className="w-full h-full object-cover"
+              />
               <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 text-sm font-medium text-green-600 border border-green-200 shadow-sm">
                 Authentic ✓
               </div>
