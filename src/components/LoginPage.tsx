@@ -7,37 +7,44 @@ import { ShieldCheck } from 'lucide-react';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   
-  const from = location.state?.from?.pathname || '/home';
+  const from = location.state?.from?.pathname || '/features';
   
   // Check if user is already logged in
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     if (isLoggedIn) {
-      navigate('/home');
+      navigate('/features');
     }
   }, [navigate]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
     if (email && password) {
-      localStorage.setItem('isLoggedIn', 'true');
-      
-      toast({
-        title: "Login Successful",
-        description: "You have been logged in.",
-      });
-      
-      navigate(from, { replace: true });
+      // Simulate API call with timeout
+      setTimeout(() => {
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        toast({
+          title: "Login Successful",
+          description: "You have been logged in.",
+        });
+        
+        navigate(from, { replace: true });
+        setIsLoading(false);
+      }, 1500);
     } else {
       toast({
         title: "Login Failed",
         description: "Please fill in all fields.",
         variant: "destructive",
       });
+      setIsLoading(false);
     }
   };
 
@@ -110,8 +117,9 @@ const LoginPage = () => {
                 <button
                   type="submit"
                   className="btn btn-primary w-full"
+                  disabled={isLoading}
                 >
-                  Sign in
+                  {isLoading ? "Signing in..." : "Sign in"}
                 </button>
               </form>
             </div>

@@ -49,11 +49,27 @@ const App = () => (
               <Dashboard />
             </ProtectedRoute>
           } />
-          <Route path="/about" element={<About />} />
-          <Route path="/brands" element={<ClothingBrands />} />
-          <Route path="/brand-reviews" element={<BrandReviews />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/about" element={
+            <ProtectedRoute>
+              <About />
+            </ProtectedRoute>
+          } />
+          <Route path="/brands" element={
+            <ProtectedRoute>
+              <ClothingBrands />
+            </ProtectedRoute>
+          } />
+          <Route path="/brand-reviews" element={
+            <ProtectedRoute>
+              <BrandReviews />
+            </ProtectedRoute>
+          } />
+          <Route path="/features" element={
+            <ProtectedRoute>
+              <Features />
+            </ProtectedRoute>
+          } />
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

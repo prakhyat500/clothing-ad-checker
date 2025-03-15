@@ -1,9 +1,69 @@
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShieldCheck, Check } from 'lucide-react';
+import { toast } from "@/hooks/use-toast";
 
 const SignupPage = () => {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Form validation
+    if (!username || !email || !password || !confirmPassword) {
+      toast({
+        title: "Error",
+        description: "All fields are required",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    if (!termsAccepted) {
+      toast({
+        title: "Error",
+        description: "You must accept the Terms of Service",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    // Simulate API call with timeout
+    setTimeout(() => {
+      // Store login state
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      toast({
+        title: "Success",
+        description: "Your account has been created",
+      });
+      
+      // Redirect to features page
+      navigate('/features');
+      setIsLoading(false);
+    }, 1500);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b bg-white py-4">
@@ -48,6 +108,10 @@ const SignupPage = () => {
               </li>
               <li className="flex items-start">
                 <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                <span>Website Trustworthiness Analysis</span>
+              </li>
+              <li className="flex items-start">
+                <Check className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" />
                 <span>Brand Verification Access</span>
               </li>
               <li className="flex items-start">
@@ -67,7 +131,7 @@ const SignupPage = () => {
               <h2 className="font-bold text-2xl">Create your account</h2>
             </div>
             <div className="card-content">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="space-y-2">
                   <label htmlFor="username" className="block text-sm font-medium">
                     Username
@@ -78,6 +142,8 @@ const SignupPage = () => {
                     placeholder="Choose a username"
                     required
                     className="input w-full"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -90,6 +156,8 @@ const SignupPage = () => {
                     placeholder="Enter your email"
                     required
                     className="input w-full"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -103,6 +171,8 @@ const SignupPage = () => {
                     required
                     minLength={8}
                     className="input w-full"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <p className="text-xs text-muted-foreground">
                     Password must be at least 8 characters long
@@ -119,6 +189,8 @@ const SignupPage = () => {
                     required
                     minLength={8}
                     className="input w-full"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
                 <div className="flex items-center space-x-2">
@@ -127,6 +199,8 @@ const SignupPage = () => {
                     id="terms"
                     required
                     className="rounded border-gray-300 text-primary focus:ring-primary"
+                    checked={termsAccepted}
+                    onChange={(e) => setTermsAccepted(e.target.checked)}
                   />
                   <label htmlFor="terms" className="text-sm text-muted-foreground">
                     I agree to the{' '}
@@ -142,8 +216,9 @@ const SignupPage = () => {
                 <button
                   type="submit"
                   className="btn btn-primary w-full"
+                  disabled={isLoading}
                 >
-                  Create Account
+                  {isLoading ? "Creating Account..." : "Create Account"}
                 </button>
               </form>
             </div>

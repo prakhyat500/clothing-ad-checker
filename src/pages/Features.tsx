@@ -1,9 +1,10 @@
 
 import React from 'react';
 import Layout from '@/components/Layout';
-import { Eye, Upload, AlertTriangle } from 'lucide-react';
+import { Eye, Upload, AlertTriangle, Link as LinkIcon } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import WebsiteAnalyzer from '@/components/WebsiteAnalyzer';
 
 const Features = () => {
   return (
@@ -16,6 +17,48 @@ const Features = () => {
             and help you make confident decisions about clothing purchases.
           </p>
         </div>
+        
+        {/* Website Analyzer Section */}
+        <section className="mb-20">
+          <div className="grid md:grid-cols-5 gap-8 items-center">
+            <div className="md:col-span-3 order-2 md:order-1">
+              <div className="space-y-4">
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-primary/10 text-primary">
+                  <LinkIcon className="mr-1 h-3 w-3" />
+                  New Feature
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight">Website Analyzer</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our new website analyzer helps you determine if clothing stores are trustworthy
+                  before you shop. Enter any URL and our system will analyze the website for
+                  common trust signals and potential red flags.
+                </p>
+                
+                <div className="pt-4">
+                  <WebsiteAnalyzer />
+                </div>
+              </div>
+            </div>
+            <div className="md:col-span-2 order-1 md:order-2">
+              <div className="bg-gradient-to-br from-blue-100/50 to-purple-50 p-8 rounded-lg">
+                <div className="rounded-lg overflow-hidden border border-border">
+                  <div className="bg-white p-4">
+                    <div className="w-full aspect-square bg-secondary flex items-center justify-center rounded-md">
+                      <LinkIcon className="h-16 w-16 text-blue-500/70" />
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <div className="h-3 w-full rounded bg-secondary"></div>
+                      <div className="h-3 w-3/4 rounded bg-secondary"></div>
+                    </div>
+                    <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded-md text-sm text-green-700 font-medium">
+                      Trustworthy Website ✓
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Ad Detection */}
         <section className="mb-20">
