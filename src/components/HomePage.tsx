@@ -37,7 +37,7 @@ const HomePage = () => {
           <div className="text-center mb-12">
             <h2 className="font-bold mb-4">Our Services</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Explore our suite of tools designed to make your online clothing shopping safer and more reliable.
+              Explore our tools designed to make your online clothing shopping safer and more reliable.
             </p>
           </div>
           
@@ -81,15 +81,15 @@ const HomePage = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold">Premium Features</h3>
+                <h3 className="font-semibold">Brand Verification</h3>
               </div>
               <div className="card-content">
                 <p className="text-muted-foreground">
-                  Unlock advanced features like virtual try-on and AI styling recommendations.
+                  Check if brands are legitimate and trustworthy before making purchases.
                 </p>
                 <div className="mt-4">
-                  <Link to="/features" className="text-primary hover:underline font-medium text-sm">
-                    View all features →
+                  <Link to="/brands" className="text-primary hover:underline font-medium text-sm">
+                    View brand database →
                   </Link>
                 </div>
               </div>
