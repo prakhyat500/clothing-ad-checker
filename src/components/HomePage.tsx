@@ -15,8 +15,8 @@ const HomePage = () => {
               Our cutting-edge tool helps you identify deceptive clothing advertisements before you make a purchase.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/upload" className="btn btn-primary">Try It Now</Link>
-              <Link to="/signup" className="btn btn-outline">Create Account</Link>
+              <Link to="/features" className="btn btn-primary">View Features</Link>
+              <Link to="/brands" className="btn btn-outline">Browse Brands</Link>
             </div>
           </div>
           <div className="rounded-lg bg-gradient-to-br from-primary/10 to-accent/5 p-8 flex items-center justify-center">
@@ -55,6 +55,11 @@ const HomePage = () => {
                 <p className="text-muted-foreground">
                   Shop with confidence knowing you can verify clothing ads before purchase.
                 </p>
+                <div className="mt-4">
+                  <Link to="/features" className="text-primary hover:underline font-medium text-sm">
+                    Learn more about our features →
+                  </Link>
+                </div>
               </div>
             </div>
             

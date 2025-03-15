@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Layout from '@/components/Layout';
-import { Eye } from 'lucide-react';
+import { Eye, Upload, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
@@ -78,6 +78,71 @@ const Features = () => {
                       Authentic Advertisement ✓
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Fake Ad Detection */}
+        <section className="mb-20">
+          <div className="grid md:grid-cols-5 gap-8 items-center">
+            <div className="md:col-span-2 order-1">
+              <div className="bg-gradient-to-br from-red-100/50 to-orange-50 p-8 rounded-lg">
+                <div className="rounded-lg overflow-hidden border border-border">
+                  <div className="bg-white p-4">
+                    <div className="w-full aspect-square bg-secondary flex items-center justify-center rounded-md">
+                      <AlertTriangle className="h-16 w-16 text-amber-500/70" />
+                    </div>
+                    <div className="mt-4 space-y-2">
+                      <div className="h-3 w-full rounded bg-secondary"></div>
+                      <div className="h-3 w-3/4 rounded bg-secondary"></div>
+                    </div>
+                    <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-md text-sm text-red-700 font-medium">
+                      Warning: Likely Manipulated Image ⚠️
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="md:col-span-3 order-2">
+              <div className="space-y-4">
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-red-100 text-red-700">
+                  <AlertTriangle className="mr-1 h-3 w-3" />
+                  Fraud Prevention
+                </div>
+                <h2 className="text-3xl font-bold tracking-tight">Fake Ad Detection</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our system identifies suspicious editing, unrealistic claims, and other deceptive tactics 
+                  used in clothing advertisements. We flag potential issues so you can make informed decisions 
+                  before purchasing.
+                </p>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base">Risk Assessment</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Assigns a risk score to advertisements based on detected manipulations and known deceptive patterns.
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base">Report Generation</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription>
+                        Creates detailed reports highlighting specific concerns found in the analyzed advertisements.
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </div>
+                
+                <div className="pt-6">
+                  <Link to="/upload" className="btn btn-primary">Upload Ad for Analysis</Link>
                 </div>
               </div>
             </div>

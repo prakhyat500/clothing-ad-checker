@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from "@/hooks/use-toast";
 import { ShieldCheck } from 'lucide-react';
@@ -10,7 +10,15 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/home';
+  
+  // Check if user is already logged in
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    if (isLoggedIn) {
+      navigate('/home');
+    }
+  }, [navigate]);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
